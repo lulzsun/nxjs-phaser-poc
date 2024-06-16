@@ -39,6 +39,9 @@ const preprocessor = () => {
 export default defineConfig({
     base: './',
     logLevel: 'warning',
+    esbuild: {
+        drop: ['console'],
+    },
     build: {
         target: 'es2022',
         lib: {
