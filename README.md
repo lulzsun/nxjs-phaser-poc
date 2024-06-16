@@ -20,7 +20,8 @@ At the moment, this template is only able to draw primitive scenes. The followin
 
 - Image loading
 - Text rendering
-- Custom Input manager
+- Input handling
+- Audio playback
 
 ## Resources
 
