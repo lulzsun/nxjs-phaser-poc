@@ -8,10 +8,16 @@ import { Preloader } from './scenes/Preloader';
 
 import { Game, Types } from "phaser";
 
+var gameCanvas = undefined;
+
+//  @ts-expect-error: no typing for nxjs objects
+if (screen.getContext !== undefined) gameCanvas = (screen) as HTMLCanvasElement;
+
 //  Find out more information about the Game Config at:
 //  https://newdocs.phaser.io/docs/3.70.0/Phaser.Types.Core.GameConfig
 const config: Types.Core.GameConfig = {
     type: Phaser.CANVAS,
+    canvas: gameCanvas,
     width: 1024,
     height: 768,
     parent: 'game-container',
