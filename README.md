@@ -14,7 +14,13 @@ This template has been updated for:
 - [Vite 5.2.11](https://github.com/vitejs/vite)
 - [TypeScript 5.4.5](https://github.com/microsoft/TypeScript)
 
-![screenshot](screenshot.png)
+### Features
+
+At the moment, this template is only able to draw primitive scenes. The following work still needs to be done to have a functional game:
+
+- Image loading
+- Text rendering
+- Custom Input manager
 
 ## Resources
 
