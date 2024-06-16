@@ -38,7 +38,7 @@ export default defineConfig({
         lib: {
             entry: resolve(__dirname, '../src/main.ts'),
             name: 'nxjs-phaser-poc',
-            fileName: 'nxjs',
+            fileName: () => { return 'nxjs.js' },
             formats: ['esm'],
         },
         minify: false,
