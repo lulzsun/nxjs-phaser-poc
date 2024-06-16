@@ -22,6 +22,7 @@ const preprocessor = () => {
                         .replace(/function\s*\(\s*element\s*,\s*parent\s*\)\s*\{[\s\S]*?var\s+target\s*;/, 'function (element, parent) { return;')
                         .replace(/this\.canvas\.getBoundingClientRect\(\)/g, 'document.body.getBoundingClientRect()')
                         .replace(/var xhr = new XMLHttpRequest\(\);/g, 'return;')
+                        .replace(/manager\.canvas\.style\.cursor = manager\.defaultCursor;/, '')
                         // .replace(/document\.createElement\("canvas"\)/g, 'new OffscreenCanvas()')
                         , 
                     map: null
