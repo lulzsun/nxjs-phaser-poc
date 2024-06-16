@@ -13,6 +13,7 @@ export class MainMenu extends Scene
 
     create ()
     {
+        console.log("start - mainmenu create scene");
         this.background = this.add.image(512, 384, 'background');
 
         this.logo = this.add.image(512, 300, 'logo');
@@ -28,5 +29,6 @@ export class MainMenu extends Scene
             this.scene.start('Game');
 
         });
+        console.log("end - mainmenu create scene");
     }
 }

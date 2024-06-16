@@ -9,6 +9,7 @@ export class Preloader extends Scene
 
     init ()
     {
+        console.log("start - preloader init scene");
         //  We loaded this image in our Boot Scene, so we can display it here
         this.add.image(512, 384, 'background');
 
@@ -25,22 +26,27 @@ export class Preloader extends Scene
             bar.width = 4 + (460 * progress);
 
         });
+        console.log("end - preloader init scene");
     }
 
     preload ()
     {
+        console.log("start - preloader preload scene");
         //  Load the assets for the game - Replace with your own assets
         //this.load.setPath('assets');
 
         //this.load.image('logo', 'logo.png');
+        console.log("end - preloader preload scene");
     }
 
     create ()
     {
+        console.log("start - preloader create scene");
         //  When all the assets have loaded, it's often worth creating global objects here that the rest of the game can use.
         //  For example, you can define global animations here, so we can use them in other scenes.
 
         //  Move to the MainMenu. You could also swap this for a Scene Transition, such as a camera fade.
         this.scene.start('MainMenu');
+        console.log("end - preloader create scene");
     }
 }
