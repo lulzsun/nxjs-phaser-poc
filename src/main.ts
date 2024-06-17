@@ -7,7 +7,7 @@ import { MainMenu } from './scenes/MainMenu';
 import { Preloader } from './scenes/Preloader';
 
 import { Game, Types } from "phaser";
-import { NXInputPlugin } from './plugins/NXInputPlugin';
+import { NXInputPlugin } from './plugins/input/NXInputPlugin';
 
 var gameCanvas = undefined;
 var gameParent = 'game-container';
