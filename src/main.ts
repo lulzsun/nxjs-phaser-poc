@@ -1,5 +1,4 @@
 import './preload';
-import { NXInputPlugin } from './plugins/NXInputPlugin';
 
 import { Boot } from './scenes/Boot';
 import { Game as MainGame } from './scenes/Game';
@@ -8,10 +7,10 @@ import { MainMenu } from './scenes/MainMenu';
 import { Preloader } from './scenes/Preloader';
 
 import { Game, Types } from "phaser";
+import { NXInputPlugin } from './plugins/NXInputPlugin';
 
 var gameCanvas = undefined;
 var gameParent = 'game-container';
-var plugins = undefined;
 
 //  @ts-expect-error: no typing for nxjs objects
 if (screen.getContext !== undefined) { 
@@ -19,16 +18,6 @@ if (screen.getContext !== undefined) {
     gameCanvas = (screen) as HTMLCanvasElement;
     //  @ts-expect-error
     gameParent = null;
-    plugins = {
-        global: [
-            {
-                key: 'NXInputPlugin', 
-                plugin: NXInputPlugin, 
-                start: true, 
-                mapping: 'input'
-            }
-        ]
-    }
 }
 
 //  Find out more information about the Game Config at:
@@ -51,7 +40,7 @@ const config: Types.Core.GameConfig = {
         MainGame,
         GameOver
     ],
-    plugins,
 };
 
+Phaser.Plugins.PluginCache.register('InputPlugin', NXInputPlugin, 'input');
 export default new Game(config);

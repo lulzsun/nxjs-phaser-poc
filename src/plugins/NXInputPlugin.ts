@@ -1,17 +1,19 @@
-import { Plugins } from "phaser";
-const { BasePlugin } = Plugins;
-
-export class NXInputPlugin extends BasePlugin {
-    constructor(pluginManager: Phaser.Plugins.PluginManager) {
-        super(pluginManager);
-        console.log('Constructor was called.');
+export class NXInputPlugin extends Phaser.Input.InputPlugin {
+    constructor(scene: Phaser.Scene) {
+        super(scene);
     }
 
-    init() {
-        console.log('Init was called.');
+    boot() {
+        // @ts-ignore
+        super.boot();
+        console.log('NXInputPlugin boot called.');
     }
 
-    once(event: string | symbol, fn: Function, context?: any) {
+    once(event: string | symbol, fn: Function, context?: any): this {
+        // @ts-ignore
+        if (globalThis.Switch === undefined) {
+            return super.once(event, fn, context);
+        }
         if (event === 'pointerdown') {
             // @ts-expect-error: nx.js
             screen.addEventListener('touchstart', (event) => {
@@ -22,5 +24,6 @@ export class NXInputPlugin extends BasePlugin {
                 event.preventDefault();
             }, { once: true });
         }
+        return this;
     }
 }
