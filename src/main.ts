@@ -1,4 +1,4 @@
-import './init';
+import './preload';
 import { NXInputPlugin } from './plugins/NXInputPlugin';
 
 import { Boot } from './scenes/Boot';
