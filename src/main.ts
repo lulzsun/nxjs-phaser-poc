@@ -1,5 +1,5 @@
 import './init';
-import { NXInputPlugin } from './plugins/input-manager';
+import { NXInputPlugin } from './plugins/NXInputPlugin';
 
 import { Boot } from './scenes/Boot';
 import { Game as MainGame } from './scenes/Game';
