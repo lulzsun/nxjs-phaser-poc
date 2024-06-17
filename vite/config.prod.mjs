@@ -40,7 +40,7 @@ export default defineConfig({
     base: './',
     logLevel: 'warning',
     esbuild: {
-        drop: ['console'],
+        pure: ['console.log', 'console.log.apply'],
     },
     build: {
         target: 'es2022',
@@ -50,8 +50,8 @@ export default defineConfig({
             fileName: () => { return 'nxjs.js' },
             formats: ['esm'],
         },
-        minify: false,
-        sourcemap: true,
+        minify: 'esbuild',
+        sourcemap: false,
         polyfillModulePreload: false,
     },
     server: {
