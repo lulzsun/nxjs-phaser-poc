@@ -23,7 +23,8 @@ export class NXInputPlugin extends Phaser.Input.InputPlugin {
                 fn();
                 event.preventDefault();
             }, { once: true });
+            return this;
         }
-        return this;
+        return super.once(event, fn, context);
     }
 }
