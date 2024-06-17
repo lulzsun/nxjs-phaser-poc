@@ -12,8 +12,7 @@ import { NXInputPlugin } from './plugins/NXInputPlugin';
 var gameCanvas = undefined;
 var gameParent = 'game-container';
 
-//  @ts-expect-error: no typing for nxjs objects
-if (screen.getContext !== undefined) { 
+if (globalThis.Switch !== undefined) { 
     //  @ts-expect-error
     gameCanvas = (screen) as HTMLCanvasElement;
     //  @ts-expect-error

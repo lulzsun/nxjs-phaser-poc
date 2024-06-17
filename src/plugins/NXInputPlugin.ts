@@ -10,7 +10,6 @@ export class NXInputPlugin extends Phaser.Input.InputPlugin {
     }
 
     once(event: string | symbol, fn: Function, context?: any): this {
-        // @ts-ignore
         if (globalThis.Switch === undefined) {
             return super.once(event, fn, context);
         }
