@@ -17,7 +17,7 @@ export class NXImageFile extends Phaser.Loader.FileTypes.ImageFile {
 
     loadImage(): void {
         // @ts-expect-error: super.loadImage() exists, typing isnt exposed.
-        if (Switch !== undefined) return super.loadImage();
+        if (Switch === undefined) return super.loadImage();
         this.state = Phaser.Loader.FILE_LOADING;
         this.src = 'sdmc:/switch/' + name + '/' + this.url;
         this.data = new Image();
