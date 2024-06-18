@@ -49,7 +49,7 @@ export class NXImageFile extends Phaser.Loader.FileTypes.ImageFile {
         }
         this.state = Phaser.Loader.FILE_PROCESSING;
 
-        Switch.readFile('sdmc:/switch/' + name + '/' + this.url as string)
+        Switch.readFile('sdmc:/switch/' + name + '/' + this.url)
             .then((buffer) => {
                 const img = decodePng({ data: buffer as Uint8Array })!;
         
