@@ -11,11 +11,13 @@ export class NXImageFile extends Phaser.Loader.FileTypes.ImageFile {
         xhrSettings?: Phaser.Types.Loader.XHRSettingsObject,
         frameConfig?: Phaser.Types.Loader.FileTypes.ImageFrameConfig
     ) {
-        loader.imageLoadType = 'HTMLImageElement';
+        if (Switch !== undefined) loader.imageLoadType = 'HTMLImageElement';
         super(loader, key, url, xhrSettings, frameConfig);
     }
 
     loadImage(): void {
+        // @ts-expect-error: super.loadImage() exists, typing isnt exposed.
+        if (Switch !== undefined) return super.loadImage();
         this.state = Phaser.Loader.FILE_LOADING;
         this.src = 'sdmc:/switch/' + name + '/' + this.url;
         this.data = new Image();
