@@ -13,7 +13,6 @@ export class GameOver extends Scene
 
     create ()
     {
-        console.log("start - gameover create scene");
         this.camera = this.cameras.main
         this.camera.setBackgroundColor(0xff0000);
 
@@ -32,6 +31,5 @@ export class GameOver extends Scene
             this.scene.start('MainMenu');
 
         });
-        console.log("end - gameover create scene");
     }
 }
