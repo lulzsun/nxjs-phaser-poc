@@ -7,12 +7,13 @@ import { MainMenu } from './scenes/MainMenu';
 import { Preloader } from './scenes/Preloader';
 
 import { Game, Types } from "phaser";
+import { NXLoaderPlugin } from './plugins/loader/NXLoaderPlugin';
 import { NXInputPlugin } from './plugins/input/NXInputPlugin';
 
 var gameCanvas = undefined;
 var gameParent = 'game-container';
 
-if (globalThis.Switch !== undefined) { 
+if (Switch !== undefined) { 
     //  @ts-expect-error
     gameCanvas = (screen) as HTMLCanvasElement;
     //  @ts-expect-error
@@ -41,5 +42,6 @@ const config: Types.Core.GameConfig = {
     ],
 };
 
+Phaser.Plugins.PluginCache.register('Loader', NXLoaderPlugin, 'load');
 Phaser.Plugins.PluginCache.register('InputPlugin', NXInputPlugin, 'input');
 export default new Game(config);

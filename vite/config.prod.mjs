@@ -8,7 +8,7 @@ const preprocessor = () => {
             process.stdout.write(`Building for production...\n`);
         },
         transform(code, id) {
-            if (id.includes("/node_modules/phaser/") || id.includes("/nxjs-phaser-poc/src/")) {
+            if (id.includes("/node_modules/phaser/")) {
                 process.stdout.write(`${id}\n`);
                 return { 
                     code: code
@@ -25,6 +25,14 @@ const preprocessor = () => {
                         .replace(/manager\.canvas\.style\.cursor = manager\.defaultCursor;/, '')
                         // .replace(/document\.createElement\("canvas"\)/g, 'new OffscreenCanvas()')
                         , 
+                    map: null
+                };
+            }
+            if (id.includes("/image-in-browser/lib/common/string-utils.js")) {
+                process.stdout.write(`${id}\n`);
+                return { 
+                    code: code
+                        .replace(/TextDecoder\('latin1'\)/g, 'TextDecoder(\'utf8\')'),
                     map: null
                 };
             }

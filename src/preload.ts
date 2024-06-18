@@ -1,7 +1,9 @@
 import { Window } from 'happy-dom-without-node';
 declare global {
     namespace globalThis {
-        function Switch(): any;
+        const Switch: {
+            readFileSync: (path: string) => ArrayBuffer;
+        };
     }
 }
 if (globalThis.document === undefined) {
@@ -12,4 +14,7 @@ if (globalThis.document === undefined) {
     }).document;
     //  @ts-ignore: dependency injection of 'process' because nxjs does not have a 'process'
     globalThis.process = undefined;
+} else {
+    // @ts-ignore
+    globalThis.Switch = undefined;
 }

@@ -3,7 +3,8 @@ import { Scene, GameObjects } from 'phaser';
 export class MainMenu extends Scene
 {
     background: GameObjects.Image;
-    logo: GameObjects.Image;
+    phaserLogo: GameObjects.Image;
+    nxjsLogo: GameObjects.Image;
     title: GameObjects.Text;
 
     constructor ()
@@ -14,9 +15,11 @@ export class MainMenu extends Scene
     create ()
     {
         console.log("start - mainmenu create scene");
-        // this.background = this.add.image(512, 384, 'background');
+        this.background = this.add.image(1280/2, 720/2, 'background');
 
-        // this.logo = this.add.image(512, 300, 'logo');
+        this.phaserLogo = this.add.image(1280/2, 720/2 - 65, 'phaser-logo');
+        this.nxjsLogo = this.add.image(1280/2, 720/2 + 65, 'nxjs-logo');
+        this.nxjsLogo.setScale(0.15);
 
         // this.title = this.add.text(512, 460, 'Main Menu', {
         //     fontFamily: 'Arial Black', fontSize: 38, color: '#ffffff',

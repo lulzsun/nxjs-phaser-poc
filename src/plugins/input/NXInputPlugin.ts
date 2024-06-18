@@ -3,14 +3,8 @@ export class NXInputPlugin extends Phaser.Input.InputPlugin {
         super(scene);
     }
 
-    boot() {
-        // @ts-ignore
-        super.boot();
-        console.log('NXInputPlugin boot called.');
-    }
-
     once(event: string | symbol, fn: Function, context?: any): this {
-        if (globalThis.Switch === undefined) {
+        if (Switch === undefined) {
             return super.once(event, fn, context);
         }
         if (event === 'pointerdown') {
