@@ -42,7 +42,7 @@ export class NXImageFile extends Phaser.Loader.FileTypes.ImageFile {
         }
     }
 
-    async onProcess(): Promise<void> {
+    onProcess(): void {
         if (Switch === undefined) {
             super.onProcess();
             return;
