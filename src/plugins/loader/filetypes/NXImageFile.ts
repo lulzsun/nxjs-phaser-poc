@@ -1,4 +1,5 @@
 import { ChannelOrder, decodePng } from 'image-in-browser';
+import { name } from '../../../../package.json';
 
 export class NXImageFile extends Phaser.Loader.FileTypes.ImageFile {
     declare cache: Phaser.Textures.TextureManager;
@@ -48,22 +49,25 @@ export class NXImageFile extends Phaser.Loader.FileTypes.ImageFile {
         }
         this.state = Phaser.Loader.FILE_PROCESSING;
 
-        const buffer = Switch.readFileSync('sdmc:/switch/nxjs-phaser-poc/' + this.url as string);
-        const img = decodePng({ data: buffer as Uint8Array })!;
+        Switch.readFile('sdmc:/switch/' + name + '/' + this.url as string)
+            .then((buffer) => {
+                const img = decodePng({ data: buffer as Uint8Array })!;
         
-        this.data = new OffscreenCanvas(img.width, img.height);
-        const ctx = this.data.getContext('2d')!;
-        
-        // Creating ImageData from MemoryImage
-        const imageData = ctx.createImageData(img.width, img.height);
-        const rawBytes = img.getBytes({ order: ChannelOrder.rgba });
-        imageData.data.set(rawBytes);
+                this.data = new OffscreenCanvas(img.width, img.height);
+                const ctx = this.data.getContext('2d')!;
+                
+                // Creating ImageData from MemoryImage
+                const imageData = ctx.createImageData(img.width, img.height);
+                const rawBytes = img.getBytes({ order: ChannelOrder.rgba });
+                imageData.data.set(rawBytes);
 
-        // Putting ImageData into context
-        ctx.putImageData(imageData, 0, 0);
-        this.onProcessComplete();
+                // Putting ImageData into context
+                ctx.putImageData(imageData, 0, 0);
+                this.onProcessComplete();
 
-        this.state = Phaser.Loader.FILE_LOADED;
-        this.loader.nextFile(this, false);
+                this.state = Phaser.Loader.FILE_LOADED;
+                this.loader.nextFile(this, false);
+            }
+        );
     }
 }

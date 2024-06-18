@@ -2,7 +2,7 @@ import { Window } from 'happy-dom-without-node';
 declare global {
     namespace globalThis {
         const Switch: {
-            readFileSync: (path: string) => ArrayBuffer;
+            readFile: (path: string) => Promise<ArrayBuffer>;
         };
     }
 }
