@@ -16,15 +16,15 @@ export class MainMenu extends Scene
     {
         this.background = this.add.image(1280/2, 720/2, 'background');
 
-        this.phaserLogo = this.add.image(1280/2, 720/2 - 65, 'phaser-logo');
-        this.nxjsLogo = this.add.image(1280/2, 720/2 + 65, 'nxjs-logo');
-        this.nxjsLogo.setScale(0.15);
+        this.phaserLogo = this.add.image(1280/2, 720/2 - 130, 'phaser-logo');
+        this.nxjsLogo = this.add.image(1280/2, 720/2 + 30, 'nxjs-logo');
+        this.nxjsLogo.setScale(0.2);
 
-        // this.title = this.add.text(512, 460, 'Main Menu', {
-        //     fontFamily: 'Arial Black', fontSize: 38, color: '#ffffff',
-        //     stroke: '#000000', strokeThickness: 8,
-        //     align: 'center'
-        // }).setOrigin(0.5);
+        this.title = this.add.text(1280/2, 720/2 + 170, 'Main Menu', {
+            fontFamily: 'Arial Black', fontSize: 38, color: '#ffffff',
+            stroke: '#000000', strokeThickness: 8,
+            align: 'center'
+        }).setOrigin(0.5);
 
         this.input.once('pointerdown', () => {
 

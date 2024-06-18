@@ -8,10 +8,11 @@ const preprocessor = () => {
             process.stdout.write(`Building for production...\n`);
         },
         transform(code, id) {
-            if (id.includes("/node_modules/phaser/")) {
+            if (id.includes("/phaser/dist/phaser.js")) {
                 process.stdout.write(`${id}\n`);
                 return { 
                     code: code
+                        // basic patches in order to boot without errors
                         .replace(/HTMLVideoElement/g, 'false')
                         .replace(/HTMLCanvasElement/g, 'Screen')
                         .replace('= checkBlendMode();', '= false;')
@@ -23,7 +24,8 @@ const preprocessor = () => {
                         .replace(/this\.canvas\.getBoundingClientRect\(\)/g, 'document.body.getBoundingClientRect()')
                         .replace(/var xhr = new XMLHttpRequest\(\);/g, 'return;')
                         .replace(/manager\.canvas\.style\.cursor = manager\.defaultCursor;/, '')
-                        // .replace(/document\.createElement\("canvas"\)/g, 'new OffscreenCanvas()')
+                        // patch fixing text(font) usage
+                        .replace(/CanvasPool\.create\(this\)/g, 'new OffscreenCanvas()')
                         , 
                     map: null
                 };
