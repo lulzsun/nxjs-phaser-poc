@@ -1,0 +1,6 @@
+{
+    "files.watcherExclude": {
+        "node_modules/phaser/dist/**": true,
+        "dist/**": true
+    }
+}
