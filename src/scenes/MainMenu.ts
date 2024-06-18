@@ -14,7 +14,6 @@ export class MainMenu extends Scene
 
     create ()
     {
-        console.log("start - mainmenu create scene");
         this.background = this.add.image(1280/2, 720/2, 'background');
 
         this.phaserLogo = this.add.image(1280/2, 720/2 - 65, 'phaser-logo');
@@ -32,11 +31,5 @@ export class MainMenu extends Scene
             this.scene.start('Game');
 
         });
-        console.log("end - mainmenu create scene");
-    }
-
-    update ()
-    {
-        // console.log("hello world");
     }
 }
