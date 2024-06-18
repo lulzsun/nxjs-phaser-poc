@@ -49,6 +49,7 @@ export default defineConfig({
     logLevel: 'warning',
     esbuild: {
         pure: ['console.log', 'console.log.apply'],
+        minifyIdentifiers: false,
     },
     build: {
         target: 'es2022',
