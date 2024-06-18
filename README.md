@@ -18,10 +18,14 @@ This template has been updated for:
 
 At the moment, this template is only able to draw primitive scenes. The following work still needs to be done to have a functional game:
 
-- Image loading
-- Text rendering
-- Input handling
-- Audio playback
+- 🟡 Image loading
+    - 🟢 Basic image support (png/jpeg/webp)
+    - ❓ Spritesheets & Atlas
+- 🔴 Text rendering
+- 🟡 Input handling
+    - 🟡 Touch support
+    - 🔴 Gamepad support
+- 🔴 Audio playback
 
 ## Resources
 
