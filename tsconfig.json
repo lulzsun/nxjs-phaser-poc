@@ -20,7 +20,10 @@
         "strictPropertyInitialization": false,
         "noUnusedLocals": true,
         "noUnusedParameters": true,
-        "noFallthroughCasesInSwitch": true
+        "noFallthroughCasesInSwitch": true,
+        "types": [
+            "nxjs-runtime"
+        ]
     },
     "include": [ "src" ],
     "exclude": [ "node_modules", "dist" ]

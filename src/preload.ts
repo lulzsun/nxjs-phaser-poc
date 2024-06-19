@@ -1,5 +1,4 @@
 import { Window } from 'happy-dom-without-node';
-import 'nxjs-runtime'; // for typing
 
 //  @ts-expect-error
 if (globalThis.document === undefined) {
@@ -14,5 +13,3 @@ if (globalThis.document === undefined) {
     // @ts-expect-error: for running on other devices other than switch
     globalThis.Switch = undefined;
 }
-
-export {} // fixes typing issues for nxjs-runtime

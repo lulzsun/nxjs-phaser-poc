@@ -5,9 +5,4 @@ export default defineConfig({
     server: {
         port: 8080
     },
-    resolve: {
-        alias: {
-            'nxjs-runtime': '../src/preload.js', // for typing
-        },
-    },
 });
