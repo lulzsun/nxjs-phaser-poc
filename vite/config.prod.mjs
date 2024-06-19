@@ -70,5 +70,10 @@ export default defineConfig({
     },
     plugins: [
         preprocessor()
-    ]
+    ],
+    resolve: {
+        alias: {
+            'nxjs-runtime': '../src/preload.js', // for typing
+        },
+    },
 });

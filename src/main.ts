@@ -12,8 +12,8 @@ import { Game, Types } from "phaser";
 //  Find out more information about the Game Config at:
 //  https://newdocs.phaser.io/docs/3.70.0/Phaser.Types.Core.GameConfig
 const config: Types.Core.GameConfig = {
-    type: Phaser.CANVAS, //  @ts-expect-error
-    canvas: Switch !== undefined ? screen : undefined, //  @ts-expect-error
+    type: Phaser.CANVAS,
+    canvas: Switch !== undefined ? screen : undefined,
     parent: Switch !== undefined ? null : 'game-container',
     width: 1280,
     height: 720,

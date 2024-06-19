@@ -2,7 +2,6 @@ import { name } from '../../../../package.json';
 
 export class NXImageFile extends Phaser.Loader.FileTypes.ImageFile {
     declare cache: Phaser.Textures.TextureManager;
-    declare data: HTMLImageElement;
 
     constructor(
         loader: Phaser.Loader.LoaderPlugin, 

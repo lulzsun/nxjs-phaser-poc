@@ -1,20 +1,18 @@
 import { Window } from 'happy-dom-without-node';
-declare global {
-    namespace globalThis {
-        const Switch: {
-            readFile: (path: string) => Promise<ArrayBuffer>;
-        };
-    }
-}
+import 'nxjs-runtime'; // for typing
+
+//  @ts-expect-error
 if (globalThis.document === undefined) {
-    //  @ts-ignore: dependency injection of 'document' because nxjs does not have a 'document'
+    //  @ts-expect-error: dependency injection of 'document' because nxjs does not have a 'document'
     globalThis.document = new Window({
         innerWidth: 1280,
         innerHeight: 720
     }).document;
-    //  @ts-ignore: dependency injection of 'process' because nxjs does not have a 'process'
+    //  @ts-expect-error: dependency injection of 'process' because nxjs does not have a 'process'
     globalThis.process = undefined;
 } else {
-    // @ts-ignore
+    // @ts-expect-error: for running on other devices other than switch
     globalThis.Switch = undefined;
 }
+
+export {} // fixes typing issues for nxjs-runtime
