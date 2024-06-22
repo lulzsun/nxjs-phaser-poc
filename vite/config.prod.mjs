@@ -21,6 +21,8 @@ const preprocessor = () => {
                         .replace(/this\.canvas\.getBoundingClientRect\(\)/g, 'document.body.getBoundingClientRect()')
                         .replace(/var xhr = new XMLHttpRequest\(\);/g, 'return;')
                         .replace(/manager\.canvas\.style\.cursor = manager\.defaultCursor;/, '')
+                        // basic patches to fix text (font) issues
+                        .replace(/canvas\.width = w;\s*canvas\.height = h;/g, 'context.clearRect(0, 0, canvas.width, canvas.height);')
                         , 
                     map: null
                 };
