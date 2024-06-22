@@ -20,8 +20,10 @@ At the moment, this template is only able to draw primitive scenes. The followin
 
 - 🟡 Image loading
     - 🟢 Basic image support (png/jpeg/webp)
-    - ❓ Spritesheets & Atlas
-- 🔴 Text rendering
+    - 🔴 Spritesheets & Atlas
+        - ❗untested
+- 🟡 Text rendering
+    - ❗requires implementing missing nx.js font metrics stuff
 - 🟡 Input handling
     - 🟡 Touch support
     - 🔴 Gamepad support
