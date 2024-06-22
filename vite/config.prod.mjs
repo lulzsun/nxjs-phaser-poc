@@ -15,7 +15,7 @@ const preprocessor = () => {
                         // basic patches in order to boot without errors
                         .replace(/HTMLVideoElement/g, 'false')
                         .replace(/HTMLCanvasElement/g, 'OffscreenCanvas')
-                        .replace(/document\.createElement\('canvas'\)/g, 'new OffscreenCanvas()')
+                        .replace(/document\.createElement\('canvas'\)/g, 'new OffscreenCanvas(1280, 720)')
                         .replace(/var orientation = \(screen\).*;/, 'var orientation = false;')
                         .replace(/function\s*\(\s*element\s*,\s*parent\s*\)\s*\{[\s\S]*?var\s+target\s*;/, 'function (element, parent) { return;')
                         .replace(/this\.canvas\.getBoundingClientRect\(\)/g, 'document.body.getBoundingClientRect()')

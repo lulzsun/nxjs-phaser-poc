@@ -21,10 +21,11 @@ export class MainMenu extends Scene
         this.nxjsLogo.setScale(0.2);
 
         this.title = this.add.text(1280/2, 720/2 + 170, 'Main Menu', {
-            fontFamily: 'Arial Black', fontSize: 38, color: '#ffffff',
-            stroke: '#000000', strokeThickness: 8,
+            fontFamily: 'system-ui', fontSize: 38, color: '#ffffff',
+            stroke: '#000000', strokeThickness: 1,
             align: 'center'
         }).setOrigin(0.5);
+
 
         this.input.once('pointerdown', () => {
 
